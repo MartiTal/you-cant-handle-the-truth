@@ -31,5 +31,16 @@ public class HandleTruthTest {
         TreeMap<Integer, Set<String>> actual = HandleTruth.wordCount("bob eats corn on the cob for bob loves corn");
         assertEquals(expected, actual);
 
+
+        //Test Case 2: A single word
+        expected = new TreeMap<>();
+        //Words that will appear once
+        words.add("woah");
+        expected.put(1, new HashSet<String>(words));
+        words.clear();
+
+        actual = HandleTruth.wordCount("woah");
+        assertEquals(expected, actual);
+
     }
 }
