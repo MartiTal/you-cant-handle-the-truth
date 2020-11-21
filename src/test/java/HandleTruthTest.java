@@ -42,5 +42,21 @@ public class HandleTruthTest {
         actual = HandleTruth.wordCount("woah");
         assertEquals(expected, actual);
 
+        //Test Case 3: A single word five times
+        expected = new TreeMap<>();
+        //Words that will appear five times
+        words.add("yeah");
+        expected.put(5, new HashSet<String>(words));
+        words.clear();
+
+        actual = HandleTruth.wordCount("yeah yeah yeah yeah yeah");
+        assertEquals(expected, actual);
+
+        //Test Case 4: No words
+        expected = new TreeMap<>();
+
+        actual = HandleTruth.wordCount(" ");
+        assertEquals(expected, actual);
+
     }
 }
