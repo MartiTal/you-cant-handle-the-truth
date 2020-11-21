@@ -79,7 +79,7 @@ public class HandleTruthTest {
         actual = HandleTruth.wordCount("yo you your youre");
         assertEquals(expected, actual);
 
-        //Test Case 6: Unconventional words or numbers
+        //Test Case 6: Hyphenated words or numbers
         // "back in 2001 people were less open-minded in general"
         expected = new TreeMap<>();
         //Words that will appear twice
@@ -100,5 +100,37 @@ public class HandleTruthTest {
         actual = HandleTruth.wordCount("back in 2001 people were less open-minded in general");
         assertEquals(expected, actual);
 
+        //Test Case 7: Words comprised of one letter
+        // "a e i o u"
+        expected = new TreeMap<>();
+        //Words that will appear once
+        words.add("a");
+        words.add("e");
+        words.add("i");
+        words.add("o");
+        words.add("u");
+        expected.put(1, new HashSet<String>(words));
+        words.clear();
+
+        actual = HandleTruth.wordCount("a e i o u");
+        assertEquals(expected, actual);
+
+        //Test Case 8: Spaces at the end of input String
+        // "in space no one can hear you scream    "
+        expected = new TreeMap<>();
+        //Words that will appear once
+        words.add("in");
+        words.add("space");
+        words.add("no");
+        words.add("one");
+        words.add("can");
+        words.add("hear");
+        words.add("you");
+        words.add("scream");
+        expected.put(1, new HashSet<String>(words));
+        words.clear();
+
+        actual = HandleTruth.wordCount("in space no one can hear you scream    ");
+        assertEquals(expected, actual);
     }
 }
